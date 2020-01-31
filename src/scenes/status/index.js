@@ -11,7 +11,7 @@ import {StyleSheet, View} from 'react-native';
 // import {CheckboxStatesShowcase} from '_atoms';
 import {Right_button} from '_atoms';
 
-const HomeScreen = () => (
+const HomeScreen = ({navigation}) => (
   <Layout style={{flex: 1}}>
     <Text
       style={{marginBottom: 10, fontSize: 21, marginTop: 30, marginLeft: 18}}>
@@ -19,7 +19,8 @@ const HomeScreen = () => (
     </Text>
     <CheckboxStatesShowcase />
     <Button
-      style={{margin: 40, marginLeft: 60, marginRight: 60, borderRedius: 20}}>
+      style={{margin: 40, marginLeft: 60, marginRight: 60, borderRedius: 20}}
+      onPress={() => navigation.navigate('SetInterval')}>
       Next
     </Button>
   </Layout>
@@ -57,23 +58,18 @@ export const CheckboxStatesShowcase = () => {
   const onNotUserChange = isChecked => {
     setNotUserChecked(isChecked);
     setdisabled1(disabled1 => !disabled1);
-    if(BinauralChecked||MonauralChecked)
-    {
+    if (BinauralChecked || MonauralChecked) {
       setBinauralChecked(isChecked);
       setMonauralChecked(isChecked);
-
     }
-
   };
   const onBinauralChange = isChecked => {
     setBinauralChecked(isChecked);
     setdisabled4(disabled4 => !disabled4);
-
   };
   const onMonauralChange = isChecked => {
     setMonauralChecked(isChecked);
     setdisabled3(disabled3 => !disabled3);
-
   };
 
   const onNormalChange = isChecked => {
@@ -83,7 +79,7 @@ export const CheckboxStatesShowcase = () => {
     setdisabled8(disabled8 => !disabled8);
   };
 
-  const onBilateralChange = (isChecked) => {
+  const onBilateralChange = isChecked => {
     setBilateralChecked(isChecked);
     setdisabled1(disabled1 => !disabled1);
     setdisabled2(disabled2 => !disabled2);
@@ -275,10 +271,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const App = () => (
+const Status = ({navigation}) => (
   <ApplicationProvider mapping={mapping} theme={lightTheme}>
-    <HomeScreen />
+    <HomeScreen navigation={navigation} />
   </ApplicationProvider>
 );
 
-export default App;
+export default Status;
