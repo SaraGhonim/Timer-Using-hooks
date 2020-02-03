@@ -10,13 +10,7 @@ import {Right_button} from '_atoms';
 import DatePicker from 'react-native-datepicker';
 
 // ssimport DataTable from 'react-native-data-table';
-import {
-  ApplicationProvider,
-  Layout,
-  Datepicker,
-  CheckBox,
-  Button,
-} from '@ui-kitten/components';
+
 import {mapping, light as lightTheme} from '@eva-design/eva';
 import {MyDatePicker} from '_atoms';
 
@@ -55,7 +49,7 @@ export default class ResultsScreen extends Component {
           borderRadius={20}
           color_intered="black"
           title="Try Again"
-          onClick={() => this.props.navigation.navigate('SetInterval')}
+          onClick={() => this.props.navigation.navigate('TestOptions')}
         />
 
         <Right_button
@@ -67,7 +61,7 @@ export default class ResultsScreen extends Component {
           onClick={() => this.props.navigation.navigate('Welcome')}
         />
         <TouchableHighlight
-          onPress={() => this.props.navigation.navigate('Average')}>
+          onPress={() => this.props.navigation.navigate('Report')}>
           <Text>Back</Text>
         </TouchableHighlight>
       </SafeAreaView>

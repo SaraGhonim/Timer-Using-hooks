@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, Text, TouchableHighlight} from 'react-native';
-import {Right_button} from './node_modules/_atoms';
+import {Right_button} from '_atoms';
 
 const ReportScreen = ({navigation}) => (
   <SafeAreaView style={{flex: 1, alignItems: 'center', marginTop: 70,borderRadius:20}}>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   Image,
   ImageBackground,
   TouchableOpacity,
@@ -12,15 +11,53 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import ColorPalette from 'react-native-color-palette';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default class SetIntervals extends Component {
+import {ColorPal} from '_molecules';
+import {Text} from '_atoms';
+import {selectColors} from '../../constants/mocks';
+import { theme } from '../../constants';
+
+export default class TestOptions extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       IntervalValue: 0,
+      selected: 0,
     };
   }
+
+  renderColorButtons = () => {
+    return (
+      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+        {selectColors.map((color, index) => {
+          return (
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  selected: index,
+                });
+              }}
+              style={{
+                marginRight: 15,
+                backgroundColor: color,
+                width: 50,
+                height: 50,
+                borderRadius: 25,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              {index === this.state.selected ? (
+                <Icon name="check" size={15} color="white" />
+              ) : null}
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    );
+  };
 
   render() {
     return (
@@ -33,7 +70,7 @@ export default class SetIntervals extends Component {
           }}>
           <View style={{marginTop: 170, margin: 30}}>
             <TextInput
-            style={{marginBottom:20}}
+              style={{marginBottom: 20}}
               onChangeText={IntervalValue => this.setState({IntervalValue})}
               value={this.state.IntervalValue}
               keyboardType="email-address"
@@ -42,22 +79,15 @@ export default class SetIntervals extends Component {
               multiline={false}
               placeholder="Set The Interval"
               underlineColorAndroid="#a9a9a9"></TextInput>
-
-            <TextInput
-              onChangeText={IntervalValue => this.setState({IntervalValue})}
-              value={this.state.IntervalValue}
-              keyboardType="email-address"
-              autoCorrect={false}
-              maxLength={30}
-              multiline={false}
-              placeholder="Set The Color"
-              underlineColorAndroid="#a9a9a9"></TextInput>
+            <Text h3 center  spacing={2} bold style={{marginVertical: theme.sizes.padding}}>Select Color</Text>
+            {this.renderColorButtons()}
           </View>
 
           <TouchableOpacity
             onPress={() =>
-              this.props.navigation.navigate('Home', {
+              this.props.navigation.navigate('Test', {
                 interval: this.state.IntervalValue,
+                color: selectColors[this.state.selected]
               })
             }
             style={styles.loginScreenButton}
