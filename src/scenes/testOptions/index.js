@@ -13,11 +13,16 @@ import {
 } from 'react-native-responsive-screen';
 import ColorPalette from 'react-native-color-palette';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import rgba from "hex-to-rgba";
 
 import {ColorPal} from '_molecules';
-import {Text} from '_atoms';
 import {selectColors} from '../../constants/mocks';
-import { theme } from '../../constants';
+
+import { Block, Badge, Card, Text } from "_atoms";
+import { styles as blockStyles } from "../../components/atoms/Block";
+import { styles as cardStyles } from "../../components/atoms/Card";
+import { theme, mocks } from "../../constants";
+
 
 export default class TestOptions extends Component {
   constructor(props) {
@@ -31,6 +36,7 @@ export default class TestOptions extends Component {
 
   renderColorButtons = () => {
     return (
+
       <View style={{flexDirection: 'row', justifyContent: 'center'}}>
         {selectColors.map((color, index) => {
           return (
@@ -68,7 +74,9 @@ export default class TestOptions extends Component {
             width: wp('100%'),
             height: hp('100%'),
           }}>
-          <View style={{marginTop: 170, margin: 30}}>
+        <Card shadow style={{ paddingVertical: theme.sizes.base * 2 }}>
+
+          <View style={{marginTop: 150, margin: 30}}>
             <TextInput
               style={{marginBottom: 20}}
               onChangeText={IntervalValue => this.setState({IntervalValue})}
@@ -94,6 +102,7 @@ export default class TestOptions extends Component {
             underlayColor="#fff">
             <Text style={styles.loginText}>Next</Text>
           </TouchableOpacity>
+          </Card>
         </ImageBackground>
       </View>
     );
@@ -111,10 +120,10 @@ const styles = StyleSheet.create({
   loginScreenButton: {
     marginRight: wp('13%'),
     marginLeft: wp('13%'),
-    marginTop: wp('20%'),
+    marginTop: wp('10%'),
     paddingTop: wp('2%'),
     paddingBottom: wp('2%'),
-    backgroundColor: '#006b8b',
+    backgroundColor:  "#27A9FF"    ,
     borderRadius: 10,
   },
 });

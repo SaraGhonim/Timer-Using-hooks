@@ -1,12 +1,19 @@
-import {Timer} from '_atoms';
+import {Timer,Card,Block, Badge, Text} from '_atoms';
 import {Statment} from '_atoms';
-import {Text} from '_atoms';
 import {useStopwatch} from 'react-timer-hook';
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, View, StatusBar} from 'react-native';
+import {SafeAreaView, View, StatusBar,StyleSheet,TouchableOpacity} from 'react-native';
 import {statments, backgroundColors, colors1} from '../../constants/mocks';
 import {isRed} from '../../../change';
 import {useInterval} from '../../utils/hooks';
+import rgba from "hex-to-rgba";
+import { styles as blockStyles } from "../../components/atoms/Block";
+import { styles as cardStyles } from "../../components/atoms/Card";
+import { theme, mocks } from "../../constants";
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+// const { width } = Dimensions.get("window");
+
 export default function TestScreen({navigation}) {
   const {seconds, minutes, hours, days, start, pause, reset} = useStopwatch({
     autoStart: true,
@@ -92,6 +99,7 @@ export default function TestScreen({navigation}) {
   return (
     <>
       <SafeAreaView>
+      
         <Timer seconds={seconds} minutes={minutes} />
 
         <Text center>
@@ -108,6 +116,19 @@ export default function TestScreen({navigation}) {
             );
           })}
         </Text>
+        <Card shadow style={{ paddingVertical: theme.sizes.base * 5 }}>
+
+        <Block center middle style={styles.endTrip} >
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("Welcome")}
+          >
+            <Badge color={theme.colors.accent} size={62}>
+              <Icon name="square" size={62 / 2.5} color="white" /> 
+            </Badge>
+          </TouchableOpacity>
+      </Block>
+         </Card> 
 
         {/* <View style={{marginBottom: 20, height: 300}}>
           {red_Or_not === 1 ? (
@@ -170,3 +191,35 @@ export default function TestScreen({navigation}) {
     </>
   );
 }
+const styles = StyleSheet.create({
+  trip: {
+    paddingVertical: theme.sizes.padding / 2,
+    padding: theme.sizes.padding,
+    backgroundColor: theme.colors.gray4
+  },
+  drivingStatus: {
+    marginRight: theme.sizes.base,
+    // width: width / 2.568
+  },
+  drivingIcon: {
+    height: 56,
+    marginBottom: theme.sizes.base * 2
+  },
+  map: {
+    height: 352
+  },
+  mapMyLocation: {
+    position: "absolute",
+    borderRadius: 4,
+    bottom: theme.sizes.base,
+    left: theme.sizes.base,
+    width: theme.sizes.base * 3,
+    height: theme.sizes.base * 3,
+    backgroundColor: theme.colors.white
+  },
+  endTrip: {
+    position: "absolute",
+     left: (420 - 144) / 2,
+    bottom: 50
+  }
+});

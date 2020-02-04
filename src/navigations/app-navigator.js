@@ -9,7 +9,7 @@ import Test from '_scenes/test';
 import {createStackNavigator} from 'react-navigation-stack';
 
 const TabNavigatorConfig = {
-  initialRouteName: 'TestOptions',
+  initialRouteName: 'Welcome',
   header: null,
   headerMode: 'none',
 };

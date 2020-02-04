@@ -5,3 +5,7 @@ export {default as CheckboxStatesShowcase} from './checkBox';
 export {default as MyDatePicker} from './MyDatePicker';
 export {default as MyColorPalette} from './colorPalette';
 export {default as Text} from './Text';
+export {default as Block} from "./Block";
+export {default as Badge} from "./Badge";
+export {default as Card} from "./Card";
+export {default as Progress} from "./Progress";

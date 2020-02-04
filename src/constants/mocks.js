@@ -4,16 +4,17 @@ const trips = [
       date: 'Yesterday',
       score: 7.2,
       distance: '45.6 mi',
-      from: 'Midtown, San Jose, CA',
-      to: 'Downtown, San Francisco, CA',
+      from: 'Maha Mostafa El gendy',
+
+      to: '2-2-2020',
     },
     {
       id: 2,
       date: 'Oct 12',
       score: 8.3,
       distance: '837.9 mi',
-      from: 'Burbank Avenue, San Martin, CA',
-      to: 'Llagas Avenue, Los Angeles, CA',
+      from: 'Sara Tarek Ghonim',
+      to: '2-2-2020',
     },
   ];
   
