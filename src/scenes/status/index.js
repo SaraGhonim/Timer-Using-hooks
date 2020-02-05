@@ -1,33 +1,47 @@
 import React from 'react';
 
-import {mapping, light as lightTheme} from '@eva-design/eva';
-import {StyleSheet, Text,View,TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 // import {CheckboxStatesShowcase} from '_atoms';
 import {Right_button} from '_atoms';
+import {RenderAwards, RenderMonthly, RenderHomeButton} from '_molecules';
+import {theme, mocks} from '../../constants';
 
 const HomeScreen = ({navigation}) => (
-  <View>
-<Text
-      style={{marginBottom: 10, fontSize: 21, marginTop: 30, marginLeft: 18}}>
-      Hearing Status
-    </Text>
+  <>
+    <View>
+      <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
+        <Text
+          style={{
+            marginBottom: 10,
+            fontSize: 21,
+            marginTop: 20,
+            marginLeft: 18,
+          }}>
+          Hearing Status
+        </Text>
 
-    <Right_button
-             height={70}
-             width={70}
-             borderRadius={35}
-              onClick={() => navigation.navigate('Home')}
-              color_intered="black"
-              title="Result"
-            />
-          
-  </View>
-    
+        <RenderMonthly />
+        <RenderAwards />
+        </ScrollView>
+
+
+        <RenderHomeButton navigation={navigation} />
+    </View>
+  </>
 );
 
-
-
 const styles = StyleSheet.create({
+  welcome: {
+    paddingVertical: theme.sizes.padding,
+    paddingHorizontal: theme.sizes.padding,
+    backgroundColor: theme.colors.gray4,
+  },
   container: {
     flexWrap: 'wrap',
   },

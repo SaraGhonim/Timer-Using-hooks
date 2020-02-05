@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   View,
-  Image,
+  Image,ScrollView,
   ImageBackground,
   TouchableOpacity,
   TextInput,
@@ -22,6 +22,7 @@ import { Block, Badge, Card, Text } from "_atoms";
 import { styles as blockStyles } from "../../components/atoms/Block";
 import { styles as cardStyles } from "../../components/atoms/Card";
 import { theme, mocks } from "../../constants";
+
 
 
 export default class TestOptions extends Component {
@@ -68,15 +69,12 @@ export default class TestOptions extends Component {
   render() {
     return (
       <View>
-        <ImageBackground
-          source={require('_assets/images/i6.jpg')}
-          style={{
-            width: wp('100%'),
-            height: hp('100%'),
-          }}>
-        <Card shadow style={{ paddingVertical: theme.sizes.base * 2 }}>
+               <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
 
-          <View style={{marginTop: 150, margin: 30}}>
+        <Card shadow style={{ paddingVertical: theme.sizes.base * 4 }}>
+        <Text h2 center  spacing={2} bold style={{marginVertical: 1}}>Test Options</Text>
+
+          <View style={{marginTop: 70, margin: 20}}>
             <TextInput
               style={{marginBottom: 20}}
               onChangeText={IntervalValue => this.setState({IntervalValue})}
@@ -103,13 +101,18 @@ export default class TestOptions extends Component {
             <Text style={styles.loginText}>Next</Text>
           </TouchableOpacity>
           </Card>
-        </ImageBackground>
+          </ScrollView>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  welcome: {
+    paddingVertical: theme.sizes.padding,
+    paddingHorizontal: theme.sizes.padding,
+    backgroundColor: theme.colors.gray4,
+  },
   loginText: {
     color: 'white',
     textAlign: 'center',

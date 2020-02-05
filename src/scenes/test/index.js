@@ -13,6 +13,8 @@ import { theme, mocks } from "../../constants";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 // const { width } = Dimensions.get("window");
+import useStateWithCallback from 'use-state-with-callback';
+import { set } from 'react-native-reanimated';
 
 export default function TestScreen({navigation}) {
   const {seconds, minutes, hours, days, start, pause, reset} = useStopwatch({
@@ -31,7 +33,14 @@ export default function TestScreen({navigation}) {
   const [colorIndex, setColorIndex] = useState(3);
   const [wordColorIndex, setWordColorIndex] = useState(3)
   const [statementArray, setStatementArray] = useState(statments[0].split(' '))
-
+  // const [count, setCount] = useStateWithCallback(0, count => {
+  //   if (count > 1) {
+  //     setStatementArray(statments[count].split(' '))
+  //     console.log('Threshold of over 1 reached.');
+  //   } else {
+  //     console.log('No threshold reached.');
+  //   }
+  // });
   // const navigation = useNavigation();
 
   function change_statement_onPress() {
@@ -121,7 +130,7 @@ export default function TestScreen({navigation}) {
         <Block center middle style={styles.endTrip} >
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => navigation.navigate("Welcome")}
+            onPress={() => setColorIndex( 1)}
           >
             <Badge color={theme.colors.accent} size={62}>
               <Icon name="square" size={62 / 2.5} color="white" /> 
