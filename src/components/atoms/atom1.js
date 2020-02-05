@@ -6,8 +6,8 @@ style={{
   color: color1,
   textAlign: 'center',
   fontSize: 35,
-  marginTop: 140,
-  marginBottom: 70,
+  marginTop: 30,
+  marginBottom: 20,
 }}>
 {statment.split(' ').map((x, ind) => (
   <Text

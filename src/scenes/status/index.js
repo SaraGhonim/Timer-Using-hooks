@@ -28,10 +28,9 @@ const HomeScreen = ({navigation}) => (
 
         <RenderMonthly />
         <RenderAwards />
-        </ScrollView>
+      </ScrollView>
 
-
-        <RenderHomeButton navigation={navigation} />
+      <RenderHomeButton navigation={navigation} />
     </View>
   </>
 );

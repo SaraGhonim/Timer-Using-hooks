@@ -23,12 +23,6 @@ class RenderHomeButton extends Component {
             onPress={() => navigation.navigate('Home')}>
             <Badge color={theme.colors.primary} size={62}>
               <Text h3>Next</Text>
-
-              {/* <Icon.FontAwesome
-                    name="automobile"
-                    size={62 / 2.5}
-                    color="white"
-                  /> */}
             </Badge>
           </TouchableOpacity>
         </Badge>

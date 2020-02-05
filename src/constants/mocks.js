@@ -29,7 +29,7 @@ const trips = [
     'red',
     'green',
     'blue',
-    'orange'
+    'orange','purple'
   ]
  const backgroundColors = [
     'brown',
@@ -91,4 +91,5 @@ const statments = [
     'أسرة عمى أسرة متعاونة ومستقرة انا احبهم جدا',
     'يجب ان نحافظ على المياه ،تلوث المياة يؤدى إلى هلاك البشرية',
   ];
-  export { trips, location, selectColors, backgroundColors, statments, colors1 };
+  const interedColorProbability =[1,1,1,1,2,3,1,1,1,1,2,3,1,1,1,1,2,3,1,1,1,1,2,3]
+  export { trips, location, selectColors, backgroundColors, statments, colors1,interedColorProbability };
