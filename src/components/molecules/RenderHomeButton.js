@@ -20,7 +20,7 @@ class RenderHomeButton extends Component {
         <Badge color={rgba(theme.colors.primary, '0.1')} size={144}>
           <TouchableOpacity
             activeOpacity={0.8}
-            onPress={() => navigation.navigate('Home')}>
+            onPress={() => navigation.navigate('TestOptions')}>
             <Badge color={theme.colors.primary} size={62}>
               <Text h3>Next</Text>
             </Badge>

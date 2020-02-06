@@ -63,10 +63,10 @@ export default class Welcome extends Component {
 
           <View>
             <TouchableOpacity
-              onPress={this.openPanel}
+              onPress={()=>this.props.navigation.navigate('Home')}
               style={styles.loginScreenButton}
               underlayColor="#fff">
-              <Text style={styles.loginText}>Register</Text>
+              <Text style={styles.loginText}>Next</Text>
             </TouchableOpacity>
           </View>
 

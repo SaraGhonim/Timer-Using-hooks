@@ -1,35 +1,49 @@
 import React from 'react';
-import {Text,  StyleSheet,View,TouchableOpacity} from 'react-native';
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import {Card, Block} from '_atoms';
+import {theme} from '../../constants';
 
-const Right_button = ({color_intered,onClick,title,disable,height,width,borderRadius}) => 
-<View>
-<TouchableOpacity
-  onPress={onClick}
-  disabled={disable}
-  style={{
-    backgroundColor: color_intered,
-    paddingTop: 5,
-    paddingBottom: 10,
-    marginTop: 0,
-    margin: 20,
-    alignItems: 'center',
-    marginBottom: 50,
-    height:height,
-    width: width,
-    borderRadius: borderRadius
-  }}>
-  <Text
-    style={{
-      textAlign: 'center',justifycontent:'flex-end',
-      paddingTop: 5,
-      paddingBottom: 5,
-      color: 'blue',
-      fontSize: 20,
-    }}>
-    {' '}
-    {title}
-  </Text>
-</TouchableOpacity>
-</View>;
+const Right_button = ({color_intered, onClick, disable, other_color}) => (
+  <Block style={{marginBottom: 0}}>
+    <Text
+      style={{textTransform: 'uppercase', letterSpacing: 0.4, fontSize: 14}}>
+      Check
+    </Text>
+
+    <Card shadow style={{paddingVertical: theme.sizes.base * 2}}>
+      <Block row>
+        <Block center>
+          <TouchableOpacity
+            onPress={onClick}
+            disabled={disable}
+            style={{
+              backgroundColor: color_intered,
+              height: 60,
+              width: 60,
+              borderRadius: 30,
+            }}></TouchableOpacity>
+        </Block>
+
+        <Block
+          flex={false}
+          color="gray"
+          style={{marginVertical: theme.sizes.base / 2, width: 2}}
+        />
+
+        <Block center>
+          <TouchableOpacity
+            onPress={onClick}
+            disabled={disable}
+            style={{
+              backgroundColor: other_color,
+              height: 60,
+              width: 60,
+              borderRadius: 30,
+            }}></TouchableOpacity>
+        </Block>
+      </Block>
+    </Card>
+  </Block>
+);
 
 export default Right_button;

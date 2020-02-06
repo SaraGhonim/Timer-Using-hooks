@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {
   StyleSheet,
-  Text,
+  Text,ScrollView,
   View,
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import {RenderAwards, RenderMonthly, RenderHomeButton} from '_molecules';
 
 export default class Register extends Component {
   //   static navigationOptions = {drawerIcon:(tintColor)=>(<Icon name="home"/>)};
@@ -20,9 +21,13 @@ export default class Register extends Component {
   render() {
     return (
       <View style={{margin: 20}}>
+                <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
+
+                <RenderAwards/>
+
         <View style={{marginBottom: 20}}>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
             autoCorrect={false}
             maxLength={30}
             multiline={false}
@@ -31,7 +36,7 @@ export default class Register extends Component {
         </View>
         <View style={{marginBottom: 20}}>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
             autoCorrect={false}
             maxLength={30}
             multiline={false}
@@ -40,7 +45,7 @@ export default class Register extends Component {
         </View>
         <View style={{marginBottom: 20}}>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
             autoCorrect={false}
             maxLength={30}
             multiline={false}
@@ -51,16 +56,26 @@ export default class Register extends Component {
        
         <View style={{marginBottom: 20}}>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
             autoCorrect={false}
             maxLength={30}
             multiline={false}
             placeholder="Age"
             underlineColorAndroid="#a9a9a9"></TextInput>
         </View>
+       
         <View style={{marginBottom: 20}}>
           <TextInput
-            keyboardType="email-address"
+            keyboardType="default"
+            autoCorrect={false}
+            maxLength={30}
+            multiline={false}
+            placeholder="Occupation"
+            underlineColorAndroid="#a9a9a9"></TextInput>
+        </View>
+        <View style={{marginBottom: 20}}>
+          <TextInput
+            keyboardType="default"
             autoCorrect={false}
             maxLength={30}
             multiline={false}
@@ -83,6 +98,7 @@ export default class Register extends Component {
             Start
           </Text>
         </TouchableOpacity>
+        </ScrollView>
       </View>
     );
   }
