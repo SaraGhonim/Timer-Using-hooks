@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 // import {CheckboxStatesShowcase} from '_atoms';
 import {Right_button} from '_atoms';
-import {RenderAwards, RenderMonthly, RenderHomeButton} from '_molecules';
+import {RenderAwards, RenderHearingStatus, RenderHomeButton} from '_molecules';
 import {theme, mocks} from '../../constants';
 
 const HomeScreen = ({navigation}) => (
@@ -26,7 +26,7 @@ const HomeScreen = ({navigation}) => (
           Hearing Status
         </Text>
 
-        <RenderMonthly />
+        <RenderHearingStatus />
         <RenderAwards />
       </ScrollView>
 

@@ -1,7 +1,19 @@
 import React from 'react';
-import {Text} from 'react-native';
+import {Text,View} from 'react-native';
+import {theme} from '../../constants'
 
-const Statment = ({color2,color1,statment,index}) =>  <Text
+import {Card,Block} from '_atoms'
+
+
+const Statment = ({color2,color1,statment,index}) =>
+<Block style={{ marginBottom: 0 }}>
+
+<Text style={{textTransform:"uppercase",letterSpacing:.4,fontSize:14}}>
+Statment</Text>
+
+<Card shadow style={{paddingVertical: theme.sizes.base * 0}}>
+<View style={{marginBottom: 5, height: 250}}>
+<Text
 style={{
   color: color1,
   textAlign: 'center',
@@ -21,6 +33,9 @@ style={{
   </Text>
 ))}
 </Text>
+</View>
+</Card>
+</Block>
 ;
 
 export default Statment;

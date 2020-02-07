@@ -128,7 +128,6 @@ export default function TestScreen({navigation}) {
     <>
       <SafeAreaView>
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
-          <Card shadow style={{paddingVertical: theme.sizes.base * 2}}>
             <Timer seconds={seconds} minutes={minutes} />
 
             {console.log(interedColor_Or_not)}
@@ -147,9 +146,8 @@ export default function TestScreen({navigation}) {
             );
           })}
         </Text> */}
-          </Card>
-          <Card shadow style={{paddingVertical: theme.sizes.base * 0}}>
-            <View style={{marginBottom: 5, height: 250}}>
+          
+         
               {interedColor_Or_not === 1 ? (
                 <Statment
                   color1={backgroundColors[colorIndex]}
@@ -172,33 +170,15 @@ export default function TestScreen({navigation}) {
                   index={wordColorIndex}
                 />
               )}
-            </View>
-          </Card>
-          <Card shadow style={{paddingVertical: theme.sizes.base * 3.5}}>
-            <Block row>
-              <Block center>
-                <TouchableOpacity
-                  disabled={disabledd}
-                  style={{
-                    backgroundColor: navigation.state.params.color,
-                    height: 60,
-                    width: 60,
-                    borderRadius: 30,
-                  }}></TouchableOpacity>
-              </Block>
-              <Block center>
-                <TouchableOpacity
-                  disabled={disabledd}
-                  onPress={change_statement_onPress}
-                  style={{
-                    backgroundColor: backgroundColors[colorIndex],
-                    height: 60,
-                    width: 60,
-                    borderRadius: 30,
-                  }}></TouchableOpacity>
-              </Block>
-            </Block>
-          </Card>
+       
+
+       <Right_button
+              onClick={change_statement_onPress}
+              color_intered={navigation.state.params.color}
+              disable={disabledd}
+              other_color={backgroundColors[colorIndex]}
+            />
+
         </ScrollView>
 
     {/*<View style={{flex: 1, flexDirection: 'row', marginLeft: 80}}>
@@ -230,6 +210,6 @@ const styles = StyleSheet.create({
   welcome: {
     paddingVertical: theme.sizes.padding,
     paddingHorizontal: theme.sizes.padding,
-    backgroundColor: theme.colors.gray3,
+    backgroundColor: theme.colors.gray4,
   },
 });

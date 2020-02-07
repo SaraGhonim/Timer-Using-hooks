@@ -29,7 +29,7 @@ class RenderTripButton extends Component {
              <Badge color={rgba(theme.colors.primary, "0.1")} size={144}> 
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate("TestOptions")}
+                onPress={() => navigation.navigate("PatientDetails")}
               >
                 <Badge color={theme.colors.primary} size={62}>
                 <Text h3>Start</Text>

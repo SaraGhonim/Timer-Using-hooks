@@ -19,22 +19,15 @@ class RenderAwards extends Component {
         style={[blockStyles.row, cardStyles.card, styles.awards]}
         colors={['#FF988A', theme.colors.accent]}>
         <Block middle flex={0.4}>
-          <Badge color={rgba(theme.colors.white, '0.2')} size={74}>
-            <Badge color={rgba(theme.colors.white, '0.2')} size={52}>
               {/* <Icon.FontAwesome
                     name="trophy"
                     color="white"
                     size={theme.sizes.h2}
                   /> */}
-            </Badge>
-          </Badge>
         </Block>
         <Block middle>
           <Text size={theme.sizes.base} spacing={0.4} medium white>
             Thank You!
-          </Text>
-          <Text size={theme.sizes.base} spacing={0.4} medium white>
-            For Using this{' '}
           </Text>
         </Block>
       </LinearGradient>

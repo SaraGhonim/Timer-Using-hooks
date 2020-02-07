@@ -16,6 +16,22 @@ const trips = [
       from: 'Sara Tarek Ghonim',
       to: '2-2-2020',
     },
+    {
+      id: 3,
+      date: 'Oct 1',
+      score: 8.3,
+      distance: '837.9 mi',
+      from: 'Yomna Maher',
+      to: '2-2-2020',
+    },
+    {
+      id: 4,
+      date: 'Oct 1',
+      score: 8.3,
+      distance: '837.9 mi',
+      from: 'Salma Magdy',
+      to: '2-2-2020',
+    },
   ];
   
   
@@ -35,12 +51,10 @@ const trips = [
     'brown',
     'black',
     '#20b2aa',
-    'blue',
     '#6495ed',
     '#ffd420',
     '#7a42f4',
     '#008000',
-    'purple',
     '#4b0082',
     '#ff4500',
     '#9acd32',
@@ -51,7 +65,6 @@ const trips = [
     '#8b4513'
   ];
 const colors1 = [
-    'blue',
     '#7a42f4',
     '#32cd32',
     '#9acd32',
