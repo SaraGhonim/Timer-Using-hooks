@@ -1,13 +1,11 @@
-import {Timer, Card, Block, Badge, Text} from '_atoms';
+import {Timer, Card, Block} from '_atoms';
 import {Statment} from '_atoms';
 import {useStopwatch} from 'react-timer-hook';
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
   View,
-  Button,
-  StatusBar,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -17,21 +15,11 @@ import {
   colors1,
   interedColorProbability,
 } from '../../constants/mocks';
-import {isRed} from '../../../change';
 import {useInterval} from '../../utils/hooks';
-import rgba from 'hex-to-rgba';
-import {styles as blockStyles} from '../../components/atoms/Block';
-import {styles as cardStyles} from '../../components/atoms/Card';
-import {theme, mocks} from '../../constants';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import {RenderHomeBottom} from '_molecules';
-// const { width } = Dimensions.get("window");
-import {set} from 'react-native-reanimated';
-import {RenderHomeButton, RenderTripButton} from '_molecules';
-import {Right_button} from '_atoms';
+import {theme} from '../../constants';
 
 export default function TestScreen({navigation}) {
-  const {seconds, minutes, hours, days, start, pause, reset} = useStopwatch({
+  const {seconds, minutes, pause, reset} = useStopwatch({
     autoStart: true,
   });
 
@@ -52,7 +40,7 @@ export default function TestScreen({navigation}) {
   const [interedColor_Or_not, set_Color] = useAsyncState(
     interedColorProbability[Math.floor(Math.random() * 24)],
   );
-  const [counter, set_counter] = useState(0);
+  const [] = useState(0);
   const [report_response_time, set_report] = useState(0);
   const [response_time_array, set_array] = useState([]);
   const [disabledd, set_disable] = useAsyncState(false);
@@ -65,7 +53,7 @@ export default function TestScreen({navigation}) {
   const [wordColorIndex, setWordColorIndex] = useAsyncState(
     Math.floor(Math.random() * 10),
   );
-  const [statementArray, setStatementArray] = useAsyncState(
+  const [, setStatementArray] = useAsyncState(
     statments[statementIndex].split(' '),
   );
 
@@ -103,13 +91,6 @@ export default function TestScreen({navigation}) {
     //{autoStart: false,}
   }
 
-  function results() {
-    var report = 0;
-    response_time_array.forEach(elem => (report += elem));
-    report = report / response_time_array.length;
-    set_report(report);
-    console.log(report_response_time, response_time_array);
-  }
   const shuffle = array => {
     array.sort(() => Math.random() - 0.5);
   };

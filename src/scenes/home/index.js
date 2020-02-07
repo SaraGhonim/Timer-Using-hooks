@@ -6,11 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import * as Icon from 'react-native-vector-icons';
-import LinearGradient from 'react-native-linear-gradient';
 
-import {Block, Badge, Card, Text} from '_atoms';
-import {theme, mocks} from '../../constants';
+import {Block, Badge, Text} from '_atoms';
+import {theme} from '../../constants';
 import {
   RenderTrips,
   RenderMonthly,
@@ -18,7 +16,6 @@ import {
   RenderAwards,
 } from '_molecules';
 
-const {width} = Dimensions.get('window');
 
 class HomeScreen extends Component {
   static navigationOptions = {
@@ -46,8 +43,7 @@ class HomeScreen extends Component {
       <React.Fragment>
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
           <RenderMonthly />
-          <RenderAwards /
-          > 
+          <RenderAwards /> 
           <RenderTrips />
         </ScrollView>
         <RenderTripButton navigation={this.props.navigation}/>

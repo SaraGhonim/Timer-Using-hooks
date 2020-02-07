@@ -6,16 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native";
-import * as Icon from "react-native-vector-icons";
- import LinearGradient  from 'react-native-linear-gradient';
 
-import { Block, Badge, Card, Text } from "_atoms";
-import { styles as blockStyles } from "_atoms/Block";
-import { styles as cardStyles } from "_atoms/Card";
-import { theme, mocks } from "../../constants";
-
-const { width } = Dimensions.get("window");
-
+import { Block, Card, Text } from "_atoms";
+import { theme } from "../../constants";
 class RenderMonthly extends Component {
    
   

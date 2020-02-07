@@ -2,26 +2,19 @@ import React, {Component} from 'react';
 import {
   StyleSheet,
   View,
-  Image,ScrollView,
-  ImageBackground,
+  ScrollView,
   TouchableOpacity,
   TextInput,
 } from 'react-native';
 import {
   widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import ColorPalette from 'react-native-color-palette';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import rgba from "hex-to-rgba";
 
-import {ColorPal} from '_molecules';
 import {selectColors} from '../../constants/mocks';
 
-import { Block, Badge, Card, Text } from "_atoms";
-import { styles as blockStyles } from "../../components/atoms/Block";
-import { styles as cardStyles } from "../../components/atoms/Card";
-import { theme, mocks } from "../../constants";
+import { Card, Text } from "_atoms";
+import { theme } from "../../constants";
 
 
 
@@ -97,7 +90,7 @@ export default class TestOptions extends Component {
               })
             }
             style={styles.loginScreenButton}
-            underlayColor="#fff">
+            underlayColor="blue">
             <Text style={styles.loginText}>Next</Text>
           </TouchableOpacity>
           </Card>
