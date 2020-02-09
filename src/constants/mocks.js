@@ -34,6 +34,24 @@ const trips = [
     },
   ];
   
+  const results = [
+    {
+      id: 1,
+      score: 7.2,
+      distance: '45.6 mi',
+      Name: 'Maha Mostafa El gendy',
+      date: 'Today',
+      to: '2-2-2020',
+    },
+    {
+      id: 2,
+      date: 'Oct 12',
+      score: 8.3,
+      distance: '837.9 mi',
+      from: 'Sara Tarek Ghonim',
+      to: '2-2-2020',
+    },
+  ];
   
   const location = {
     latitude: 40.73978092263567,
@@ -105,4 +123,4 @@ const statments = [
     'يجب ان نحافظ على المياه ،تلوث المياة يؤدى إلى هلاك البشرية',
   ];
   const interedColorProbability =[1,1,1,1,2,3,1,1,1,1,2,3,1,1,1,1,2,3,1,1,1,1,2,3]
-  export { trips, location, selectColors, backgroundColors, statments, colors1,interedColorProbability };
+  export { results,trips, location, selectColors, backgroundColors, statments, colors1,interedColorProbability };

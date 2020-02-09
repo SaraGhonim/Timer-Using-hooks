@@ -1,23 +1,12 @@
 import React, { Component } from "react";
-import {
-  Dimensions,
-  ScrollView,
-} from "react-native";
 import rgba from "hex-to-rgba";
-import * as Icon from "react-native-vector-icons";
- import LinearGradient  from 'react-native-linear-gradient';
 
 import { Block, Badge, Card, Text } from "_atoms";
-import { styles as blockStyles } from "../atoms/Block";
-import { styles as cardStyles } from "../atoms/Card";
 import { theme, mocks } from "../../constants";
 
-const { width } = Dimensions.get("window");
 
 
 class RenderTrips extends Component {
-  
-
   renderTrip = trip => {
     return (
       <Card shadow key={`trip-${trip.id}`}>

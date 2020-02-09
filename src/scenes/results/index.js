@@ -1,70 +1,50 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
-  SafeAreaView,
-  TouchableHighlight,
-  Text,
+  ImageBackground,
   StyleSheet,
   View,
+  Image,
+  TouchableOpacity,
+  ScrollView
 } from 'react-native';
-import {Right_button} from '_atoms';
-import DatePicker from 'react-native-datepicker';
+import { Card } from '_atoms';
+import { theme } from "../../constants";
 
-// ssimport DataTable from 'react-native-data-table';
-
-import {mapping, light as lightTheme} from '@eva-design/eva';
-import {MyDatePicker} from '_atoms';
+import {
+  RenderAwards,
+  RenderTrips,
+  RenderMonthly,
+  RenderTripButton,
+  TestResults
+} from '_molecules';
 
 export default class ResultsScreen extends Component {
   constructor(props) {
     super(props);
-    this.state = {date: '2020-01-01'};
+    this.state = { date: '2020-01-01' };
   }
 
   render() {
     return (
-      <SafeAreaView
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          marginTop: 70,
-          borderRadius: 20,
-        }}>
-        <View style={{flexDirection: 'row'}}>
-          <Text>From</Text>
-          <View style={{marginLeft: 30}}>
-            <MyDatePicker />
+      <View style={{ flex: 1 }}>
+        <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
+            <Image
+              source={require('_assets/images/result.png')}
+              style={styles.LogoStyle}
+            />
           </View>
-        </View>
+          <Card shadow style={{ paddingVertical: theme.sizes.base }}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate("Result")}>
+              <TestResults />
+              <RenderAwards />
+            </TouchableOpacity>
+          </Card>
+        </ScrollView>
+      </View>
 
-        <View style={{flexDirection: 'row', marginTop: 20, marginBottom: 50}}>
-          <Text>To</Text>
-          <View style={{marginLeft: 39}}>
-            <MyDatePicker />
-          </View>
-        </View>
-
-        <Right_button
-          height={50}
-          width={180}
-          borderRadius={20}
-          color_intered="black"
-          title="Try Again"
-          onClick={() => this.props.navigation.navigate('TestOptions')}
-        />
-
-        <Right_button
-          height={50}
-          width={180}
-          borderRadius={20}
-          color_intered="black"
-          title="Exit"
-          onClick={() => this.props.navigation.navigate('Welcome')}
-        />
-        <TouchableHighlight
-          onPress={() => this.props.navigation.navigate('Report')}>
-          <Text>Back</Text>
-        </TouchableHighlight>
-      </SafeAreaView>
     );
   }
 }
@@ -92,7 +72,8 @@ export default class ResultsScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 376,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     marginVertical: 8,

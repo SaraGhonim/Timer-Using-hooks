@@ -1,40 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, TouchableOpacity ,Image,View} from 'react-native';
+import { Card } from '_atoms';
+import { RenderHearingStatus, RenderAwards } from '_molecules';
+import { theme } from '../../constants';
 
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  ScrollView,
-} from 'react-native';
-// import {CheckboxStatesShowcase} from '_atoms';
-import {Right_button} from '_atoms';
-import {RenderAwards, RenderHearingStatus, RenderHomeButton} from '_molecules';
-import {theme, mocks} from '../../constants';
+export default class StatusScreen extends Component {
 
-const HomeScreen = ({navigation}) => (
-  <>
-    <View>
+  render() {
+    const { navigation } = this.props;
+
+    return (
       <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
-        <Text
-          style={{
-            marginBottom: 10,
-            fontSize: 21,
-            marginTop: 20,
-            marginLeft: 18,
-          }}>
-          Hearing Status
-        </Text>
-
-        <RenderHearingStatus />
-        <RenderAwards />
+  <View style={styles.container}>
+              <Image
+                source={require('_assets/images/continue.png')}
+              />
+            </View>
+        <Card>
+          <RenderHearingStatus />
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => navigation.navigate("TestOptions")}>
+            <RenderAwards />
+          </TouchableOpacity>
+        </Card>
       </ScrollView>
-
-      <RenderHomeButton navigation={navigation} />
-    </View>
-  </>
-);
-
+    );
+  }
+}
 const styles = StyleSheet.create({
   welcome: {
     paddingVertical: theme.sizes.padding,
@@ -42,7 +35,8 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.gray4,
   },
   container: {
-    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   container2: {
     flexDirection: 'row',
@@ -60,5 +54,3 @@ const styles = StyleSheet.create({
     marginRight: 17,
   },
 });
-
-export default HomeScreen;

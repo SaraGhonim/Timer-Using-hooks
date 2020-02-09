@@ -11,8 +11,8 @@ import rgba from "hex-to-rgba";
 
 const {width} = Dimensions.get('window');
 
-class RenderAwards extends Component {
-  renderAwards() {
+class PatientInfoButton extends Component {
+  patientInfoButton() {
     const { navigation } = this.props;
     return (
       <LinearGradient
@@ -30,7 +30,7 @@ class RenderAwards extends Component {
   }
 
   render() {
-    return <React.Fragment>{this.renderAwards()}</React.Fragment>;
+      return <React.Fragment>{this.patientInfoButton()}</React.Fragment>;
   }
 }
 
@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RenderAwards;
+export default PatientInfoButton;

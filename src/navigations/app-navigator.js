@@ -5,6 +5,8 @@ import StatusScreen from '_scenes/status';
 import TestOptionsScreen from '_scenes/testOptions';
 import PatientDetails from '_scenes/patientDetails';
 import Test from '_scenes/test';
+import ResultsScreen from '_scenes/results';
+
 
 import {createStackNavigator} from 'react-navigation-stack';
 
@@ -23,6 +25,7 @@ const RouteConfigs = {
   TestOptions: TestOptionsScreen,
   Test,
   Report: ReportScreen,
+  Result: ResultsScreen,
 };
 
 const AppNavigator = createStackNavigator(RouteConfigs, TabNavigatorConfig);

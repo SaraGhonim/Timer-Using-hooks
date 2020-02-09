@@ -1,35 +1,65 @@
-import React from 'react';
-import {SafeAreaView, Text, TouchableHighlight} from 'react-native';
-import {Right_button} from '_atoms';
+import React, { Component } from 'react';
+import {
+  View,
+  Image,
+  ImageBackground,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView
+} from 'react-native';
 
-const ReportScreen = ({navigation}) => (
-  <SafeAreaView style={{flex: 1, alignItems: 'center', marginTop: 70,borderRadius:20}}>
-    <Text style={{fontSize: 30, marginBottom: 50}}>Screen: report</Text>
-    <Right_button 
-    height={50}
-    width={180}
-    borderRadius={20}
-      color_intered="black"
-      title="Try Again"
-      onClick={() => navigation.navigate('TestOptions')}
-    />
-    <Right_button 
-    height={50}
-    width={180}
-    borderRadius={20}
-      color_intered="black"
-      title="Get the data"
-      onClick={() => navigation.navigate('Results')}
-    />
-    <Right_button
-     height={50}
-     width={180}
-     borderRadius={20}
-      color_intered="black"
-      title="Exit"
-      onClick={() => navigation.navigate('Welcome')}
-    />
-  </SafeAreaView>
-);
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import {
+  RenderAwards,
+} from '_molecules';
+import { Card, Text } from "_atoms";
+import { theme } from "../../constants";
 
-export default ReportScreen;
+export default class ReportScreen extends Component {
+
+  render() {
+    const { navigation } = this.props;
+    return (
+      <View style={{ flex: 1 }}>
+        <ImageBackground
+          style={{
+            width: wp('100%'),
+            height: hp('100%'),
+            backgroundColor: '#ffff',
+          }}>
+          <View style={styles.container}>
+            <Image
+              source={require('_assets/images/finished2.png')}
+              style={styles.LogoStyle}
+            />
+          </View>
+          <View style={{ justifyContent: 'center',alignItems: 'center'}}>
+            <Image
+              source={require('_assets/images/done.png')}
+              style={styles.LogoStyle}
+            />
+          </View>
+          <Card shadow style={{ paddingVertical: theme.sizes.base }}>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate("Result")}>
+              <RenderAwards />
+            </TouchableOpacity>
+          </Card>
+        </ImageBackground>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: hp('5%'),
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+});

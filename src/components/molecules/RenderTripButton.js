@@ -58,8 +58,6 @@ class RenderTripButton extends Component {
   }
   
   const styles = StyleSheet.create({
-   
-
     startTrip: {
         position: "absolute",
         left: (width - 144) / 2,

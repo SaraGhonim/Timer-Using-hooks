@@ -2,24 +2,16 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
-  Text,
   Image,
   ImageBackground,
   TouchableOpacity,
 } from 'react-native';
-import { Register } from '_molecules';
 
-import SwipeablePanel from 'rn-swipeable-panel';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { Block, Badge, Card } from '_atoms';
-import { theme, mocks } from '../../constants';
 import {
-  RenderTrips,
-  RenderMonthly,
-  RenderTripButton,
   RenderAwards,
 } from '_molecules';
 
@@ -49,20 +41,16 @@ export default class Welcome extends Component {
           </View>
           <View style={styles.container}>
             <Image
-              source={require('_assets/images/Lo.png')}
+              source={require('_assets/images/logo.png')}
               style={styles.LogoStyle}
             />
           </View>
-          <RenderAwards  /> 
-
           <TouchableOpacity
-            onPress={() => navigation.navigate("Home")}
-            style={styles.loginScreenButton}
-            underlayColor="#fff">
-            <Text style={styles.loginText}>Next</Text>
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate("Home")}>
+          <RenderAwards /> 
           </TouchableOpacity>
-
-
+          
         </ImageBackground>
       </View>
     );
@@ -101,7 +89,7 @@ const styles = StyleSheet.create({
   LogoStyle: {
     height: hp('25%'),
     width: wp('60%'),
-    // marginTop: 110,
+    marginBottom: 110,
   },
   container: {
     justifyContent: 'center',

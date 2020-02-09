@@ -23,11 +23,6 @@ class HomeScreen extends Component {
     headerRight: (
       <TouchableOpacity>
         <Block flex={false}>
-          <Image
-            resizeMode="contain"
-            source={require('_assets/images/i6.jpg')}
-            style={{width: 20, height: 24}}
-          />
           <Badge
             size={13}
             color={theme.colors.accent}
@@ -43,7 +38,7 @@ class HomeScreen extends Component {
       <React.Fragment>
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
           <RenderMonthly />
-          <RenderAwards /> 
+          {/* <RenderAwards />  */}
           <RenderTrips />
         </ScrollView>
         <RenderTripButton navigation={this.props.navigation}/>
