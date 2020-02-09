@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
-import {Card, Block} from '_atoms';
+import {Card, Block,Icon,CrossIcon} from '_atoms';
 import {theme} from '../../constants';
 
 const Right_button = ({color_intered, onClick, disable, other_color}) => (
@@ -21,7 +21,7 @@ const Right_button = ({color_intered, onClick, disable, other_color}) => (
               height: 60,
               width: 60,
               borderRadius: 30,
-            }}></TouchableOpacity>
+            }}><Icon/></TouchableOpacity>
         </Block>
 
         <Block
@@ -39,7 +39,7 @@ const Right_button = ({color_intered, onClick, disable, other_color}) => (
               height: 60,
               width: 60,
               borderRadius: 30,
-            }}></TouchableOpacity>
+            }}><CrossIcon/></TouchableOpacity>
         </Block>
       </Block>
     </Card>

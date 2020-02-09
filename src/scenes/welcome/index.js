@@ -75,15 +75,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#27A9FF',
   },
   FacultyStyle: {
-    height: hp('13%'),
+    height: hp('14%'),
     width: wp('25%'),
-    marginTop: 8,
+    marginTop: 0,
     marginRight: wp('5%'),
 
   },
   UnivesityStyle: {
     height: hp('15%'),
-    width: wp('35%'),
+    width: wp('33%'),
     // marginTop: 110,
   },
   LogoStyle: {

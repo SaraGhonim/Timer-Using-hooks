@@ -17,7 +17,7 @@ import {
 } from '../../constants/mocks';
 import {useInterval} from '../../utils/hooks';
 import {theme} from '../../constants';
-
+import {Right_button} from '_atoms'
 export default function TestScreen({navigation}) {
   const {seconds, minutes, pause, reset} = useStopwatch({
     autoStart: true,

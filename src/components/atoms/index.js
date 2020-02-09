@@ -9,3 +9,6 @@ export {default as Block} from "./Block";
 export {default as Badge} from "./Badge";
 export {default as Card} from "./Card";
 export {default as Progress} from "./Progress";
+export {default as Icon} from "./icon";
+
+export {default as CrossIcon} from "./crossIcon";

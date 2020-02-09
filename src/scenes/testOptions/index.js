@@ -109,7 +109,13 @@ export default class TestOptions extends Component {
             {this.renderColorButtons()}
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={() => navigation.navigate("Test")}>
+              onPress={() => navigation.navigate("Test",{
+                interval: this.state.IntervalValue,
+                color: selectColors[this.state.selected],
+                statementsNumber:this.state.statementsNumber,
+                Post_Click_Interval:this.state.Post_Click_Interval
+              
+              })}>
               <RenderAwards />
             </TouchableOpacity>
           </Card>
