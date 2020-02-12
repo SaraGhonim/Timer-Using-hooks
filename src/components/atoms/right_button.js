@@ -3,7 +3,7 @@ import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 import {Card, Block,Icon,CrossIcon} from '_atoms';
 import {theme} from '../../constants';
 
-const Right_button = ({color_intered, onClick, disable, other_color}) => (
+const Right_button = ({color_intered, onClickCheck,onClickCross, disable, other_color}) => (
   <Block style={{marginBottom: 0}}>
     <Text
       style={{textTransform: 'uppercase', letterSpacing: 0.4, fontSize: 14}}>
@@ -14,7 +14,7 @@ const Right_button = ({color_intered, onClick, disable, other_color}) => (
       <Block row>
         <Block center>
           <TouchableOpacity
-            onPress={onClick}
+            onPress={onClickCheck}
             disabled={disable}
             style={{
               backgroundColor: color_intered,
@@ -32,7 +32,7 @@ const Right_button = ({color_intered, onClick, disable, other_color}) => (
 
         <Block center>
           <TouchableOpacity
-            onPress={onClick}
+            onPress={onClickCross}
             disabled={disable}
             style={{
               backgroundColor: other_color,

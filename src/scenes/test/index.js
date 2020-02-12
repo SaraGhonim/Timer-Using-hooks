@@ -17,7 +17,7 @@ import {
 } from '../../constants/mocks';
 import {useInterval} from '../../utils/hooks';
 import {theme} from '../../constants';
-import {Right_button} from '_atoms'
+import {Right_button} from '_atoms';
 export default function TestScreen({navigation}) {
   const {seconds, minutes, pause, reset} = useStopwatch({
     autoStart: true,
@@ -33,7 +33,8 @@ export default function TestScreen({navigation}) {
     return [value, setter];
   }
 
-  // const [index, setIndex] = useAsyncState(Math.floor(Math.random() * 10) + 1);
+  const [counter, setCounter] = useAsyncState(0);
+  const [wrongAnswer, setWrongAnswer] = useAsyncState(0);
   // const [statment, setStatement] = useAsyncState(statments[index]);
   // const [color1, setColor] = useAsyncState(backgroundColors[index]);
   // const [color2, setColor2] = useAsyncState(colors1[index]);
@@ -42,53 +43,38 @@ export default function TestScreen({navigation}) {
   );
   const [] = useState(0);
   const [report_response_time, set_report] = useState(0);
-  const [response_time_array, set_array] = useState([]);
+  const [response_time_array, set_array] = useAsyncState([]);
   const [disabledd, set_disable] = useAsyncState(false);
-  const [statementIndex, setStatementIndex] = useAsyncState(
-    Math.floor(Math.random() * 10),
-  );
-  const [colorIndex, setColorIndex] = useAsyncState(
-    Math.floor(Math.random() * 10),
-  );
+  const [index, setIndex] = useAsyncState(0);
   const [wordColorIndex, setWordColorIndex] = useAsyncState(
-    Math.floor(Math.random() * 10),
+    Math.floor(Math.random() * 5),
   );
-  const [, setStatementArray] = useAsyncState(
-    statments[statementIndex].split(' '),
-  );
+  const[statementIndex,setStatementIndex]=useAsyncState(0)
+const[colorIndex,setColorIndex]=useAsyncState(0)
+const [statementArray, setStatementArray] = useAsyncState(
+  statments[statementIndex].split(' '),
+);
 
   function change_statement_onPress() {
-    pause();
-    set_disable(true).then(
-      set_array([...response_time_array, seconds * 1000 + minutes * 60 * 1000]),
-    );
-    if (colorIndex === 3) {
-      setStatement(' ');
-      reset();
-      pause();
-      // break;
-    }
+    console.log('looog')
+    // setTimeout(() => {
+    //   reset();
+    //   setIndex(index + 1)
+    //     .then(index => {
+    //       setStatementArray(statments[index].split(' '));
+    //       console.log('index', index);
+    //     })
+    //     .then(statementArray => {
 
-    setTimeout(() => {
-      reset();
-      setStatementIndex(statementIndex + 1)
-        .then(statementIndex =>
-          setStatementArray(statments[statementIndex].split(' ')),
-        )
-        .then(statementArray =>
-          setWordColorIndex(Math.floor(Math.random() * statementArray.length)),
-        )
-        .then(setColorIndex(colorIndex => colorIndex + 1))
-        .then(set_Color(interedColorProbability[colorIndex]))
-        .then(set_disable(false));
-      // setIndex(Math.floor(Math.random() * 15) + 1);
-      // setColor(backgroundColors[index]);
-      // setColor2(colors1[index]);
-      // set_red(isRed[index]);
-      // setStatement(statments[index]);
-    }, 1000 * parseInt(navigation.state.params.interval));
+    //       setWordColorIndex(Math.floor(Math.random() * statementArray.length))
+    //       console.log('length', statementArray)
+          
+    //     })
+    //     .then(wordColorIndex => console.log('wordColorIndex', wordColorIndex))
 
-    //{autoStart: false,}
+    //     .then(set_Color(interedColorProbability[index]))
+    //     .then(set_disable(false));
+    // }, 1000 * parseInt(navigation.state.params.Post_Click_Interval));
   }
 
   const shuffle = array => {
@@ -110,98 +96,122 @@ export default function TestScreen({navigation}) {
     }
     setStatementIndex(statementIndex + 1)
       .then(statementIndex =>
-        setStatementArray(statments[statementIndex].split(' ')),
+        {setStatementArray(statments[statementIndex].split(' '))
+               console.log('index', statementIndex);
+
+}
       )
       .then(statementArray =>
-        setWordColorIndex(Math.floor(Math.random() * statementArray.length)),
+        {setWordColorIndex(Math.floor(Math.random() * statementArray.length))
+          console.log('length', statementArray.length)
+
+        }
       )
       .then(setColorIndex(colorIndex => colorIndex + 1))
       .then(set_Color(interedColorProbability[colorIndex]));
     reset();
   }, 1000 * parseInt(navigation.state.params.interval));
+  function isPressed() {
+    pause();
+    setCounter(counter + 1)
+      .then(counter => {
+        console.log('counter is', counter);
+        if (counter === parseInt(navigation.state.params.statementsNumber)) {
+          setTimeout(() => {
+            setStatementArray([' ']);
+
+            navigation.navigate('Report');
+          }, 3000);
+        } else {
+          change_statement_onPress();
+        }
+      })
+      .then(set_disable(true));
+  }
   const renderStatement = () => {
     console.log();
   };
+  function check_Was_Clicked() {
+    isPressed();
+    if (interedColor_Or_not === 1) {
+      set_array([
+        ...response_time_array,
+        seconds * 1000 + minutes * 60 * 1000,
+      ]).then(response_time_array =>
+        console.log(
+          'cross_Was_Clicked and it is right answer',
+          response_time_array,
+        ),
+      );
+    } else {
+      setWrongAnswer(wrongAnswer + 1).then(wrongAnswer =>
+        console.log('check_Was_Clicked and it is wrong answer', wrongAnswer),
+      );
+    }
+  }
+  function cross_Was_Clicked() {
+    isPressed();
+
+    if (interedColor_Or_not === 1) {
+      setWrongAnswer(wrongAnswer + 1).then(wrongAnswer =>
+        console.log('cross_Was_Clicked and it is wrong answer', wrongAnswer),
+      );
+    } else {
+      set_array([
+        ...response_time_array,
+        seconds * 1000 + minutes * 60 * 1000,
+      ]).then(response_time_array =>
+        console.log(
+          'cross_Was_Clicked and it is right answer',
+          response_time_array,
+        ),
+      );
+    }
+  }
   renderStatement();
 
   return (
     <>
       <SafeAreaView>
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
-            <Timer seconds={seconds} minutes={minutes} />
+          <Timer seconds={seconds} minutes={minutes} />
 
-            {console.log(interedColor_Or_not)}
+          {
+            (console.log(interedColor_Or_not),
+            console.log('WordColorIndex', wordColorIndex))
+          }
 
-            {/* <Text center>
-          {statementArray.map((word, index) => {
-            console.log(index, wordColorIndex, statementArray.length);
-            return (
-              <Text
-                h1
-                color={
-                  index === wordColorIndex
-                    ? navigation.state.params.color
-                    : backgroundColors[colorIndex]
-                }>{` ${word}`}</Text>
-            );
-          })}
-        </Text> */}
-          
-         
-              {interedColor_Or_not === 1 ? (
-                <Statment
-                  color1={backgroundColors[colorIndex]}
-                  color2={navigation.state.params.color}
-                  statment={statments[statementIndex]}
-                  index={wordColorIndex}
-                />
-              ) : interedColor_Or_not === 2 ? (
-                <Statment
-                  color1={backgroundColors[colorIndex]}
-                  color2={colors1[colorIndex]}
-                  statment={statments[statementIndex]}
-                  index={wordColorIndex}
-                />
-              ) : (
-                <Statment
-                  color1={backgroundColors[colorIndex]}
-                  color2={backgroundColors[colorIndex]}
-                  statment={statments[statementIndex]}
-                  index={wordColorIndex}
-                />
-              )}
-       
-
-       <Right_button
-              onClick={change_statement_onPress}
-              color_intered={navigation.state.params.color}
-              disable={disabledd}
-              other_color={backgroundColors[colorIndex]}
+          {interedColor_Or_not === 1 ? (
+            <Statment
+              color1={backgroundColors[statementIndex]}
+              color2={navigation.state.params.color}
+              statment={statementArray}
+              index={wordColorIndex}
             />
+          ) : interedColor_Or_not === 2 ? (
+            <Statment
+              color1={backgroundColors[statementIndex]}
+              color2={colors1[statementIndex]}
+              statment={statementArray}
+              index={wordColorIndex}
+            />
+          ) : (
+            <Statment
+              color1={backgroundColors[statementIndex]}
+              color2={backgroundColors[statementIndex]}
+              statment={statementArray}
+              index={wordColorIndex}
+            />
+          )}
 
+          <Right_button
+            onClickCheck={check_Was_Clicked}
+            onClickCross={cross_Was_Clicked}
+            color_intered={navigation.state.params.color}
+            disable={disabledd}
+            other_color={backgroundColors[index]}
+          />
         </ScrollView>
-
-    {/*<View style={{flex: 1, flexDirection: 'row', marginLeft: 80}}>
-            <Right_button
-             height={70}
-             width={70}
-             borderRadius={35}
-              onClick={change_statement_onPress}
-              color_intered="#ff9800"
-              title="press"
-              disable={disabledd}
-            />
-            <Right_button
-             height={70}
-             width={70}
-             borderRadius={35}
-              onClick={results}
-              color_intered="black"
-              title="Result"
-              disable={disabledd}
-            />
-          </View>
-        )} */}
       </SafeAreaView>
     </>
   );

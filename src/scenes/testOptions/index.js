@@ -10,11 +10,11 @@ import {
 import {
   widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-import Icon from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { selectColors } from '../../constants/mocks';
 import {RenderAwards} from '_molecules';
-import { Card, Text } from "_atoms";
+import { Card, Text,Icon } from "_atoms";
 import { theme } from "../../constants";
 
 
@@ -52,7 +52,8 @@ export default class TestOptions extends Component {
                 alignItems: 'center',
               }}>
               {index === this.state.selected ? (
-                <Icon name="check" size={15} color="white" />
+                // <Icon name="check" size={15} color="white" />
+                <Icon/>
               ) : null}
             </TouchableOpacity>
           );
@@ -65,15 +66,15 @@ export default class TestOptions extends Component {
     const { navigation } = this.props;
     return (
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
-            <Image
+            <Image 
               source={require('_assets/images/test.png')}/>
-          <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
+          <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3}}>
             <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
               <TextInput
                 style={{ marginBottom: 10 }}
                 onChangeText={IntervalValue => this.setState({ IntervalValue })}
                 value={this.state.IntervalValue}
-                keyboardType="email-address"
+                keyboardType="default"
                 autoCorrect={false}
                 maxLength={30}
                 multiline={false}
@@ -83,9 +84,9 @@ export default class TestOptions extends Component {
             <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
             <TextInput
                 style={{ marginBottom: 10 }}
-                onChangeText={IntervalValue => this.setState({ Post_Click_Interval })}
-                value={this.state.IntervalValue}
-                keyboardType="email-address"
+                onChangeText={Post_Click_Interval => this.setState({ Post_Click_Interval })}
+                value={this.state.Post_Click_Interval}
+                keyboardType="default"
                 autoCorrect={false}
                 maxLength={30}
                 multiline={false}
@@ -97,7 +98,7 @@ export default class TestOptions extends Component {
                 style={{ marginBottom: 10 }}
                 onChangeText={statementsNumber => this.setState({ statementsNumber })}
                 value={this.state.statementsNumber}
-                keyboardType="email-address"
+                keyboardType="default"
                 autoCorrect={false}
                 maxLength={30}
                 multiline={false}

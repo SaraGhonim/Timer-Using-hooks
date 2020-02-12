@@ -21,7 +21,7 @@ style={{
   marginTop: 30,
   marginBottom: 20,
 }}>
-{statment.split(' ').map((x, ind) => (
+{statment.map((x, ind) => (
   <Text
     style={{
       color:

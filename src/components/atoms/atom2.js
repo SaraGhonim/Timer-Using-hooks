@@ -13,7 +13,7 @@ Timer
 </Text>
 
 <Card shadow style={{paddingVertical: theme.sizes.base * 2}}>
-<Text h1 center primary
+<Text h1 center 
 // style={{
 //   textAlign: 'center',
 //   fontSize: 40,
