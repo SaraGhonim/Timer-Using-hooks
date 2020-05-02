@@ -32,7 +32,7 @@ class RenderTripButton extends Component {
                 onPress={() => navigation.navigate("PatientDetails")}
               >
                 <Badge color={theme.colors.primary} size={62}>
-                <Text h3>Start</Text>
+                <Text h3 white >Start</Text>
     
                   {/* <Icon.FontAwesome
                     name="automobile"
