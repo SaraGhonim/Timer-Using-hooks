@@ -7,6 +7,11 @@ export {default as RenderAwards} from './RenderAwards'
 export {default as RenderHearingStatus} from './HearingStatus'
 export {default as TestOptionButton} from './TestOptionButton'
 export {default as TestResults} from './TestResults'
+export {default as HomeButton} from './HomeButton'
+export {default as ExistingPatient} from './ExistingPatient'
+
+
+
 
 
 

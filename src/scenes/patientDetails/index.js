@@ -8,7 +8,7 @@ import {
   Dimensions,
   Image
 } from 'react-native';
-import {widthPercentageToDP as wp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import { selectColors } from '../../constants/mocks';
@@ -16,13 +16,16 @@ import { selectColors } from '../../constants/mocks';
 import { Card } from "_atoms";
 import { theme } from "../../constants";
 const { width } = Dimensions.get("window");
-import { RenderAwards,RenderHearingStatus} from '_molecules';
+import { RenderAwards, RenderHearingStatus } from '_molecules';
+import { SearchBar } from 'react-native-elements';
+
 
 export default class TestOptions extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      search: '',
       IntervalValue: 0, Post_Click_Interval: 0, statementsNumber: 5,
       selected: 0,
     };
@@ -30,7 +33,6 @@ export default class TestOptions extends Component {
 
   renderColorButtons = () => {
     return (
-
       <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 30 }}>
         {selectColors.map((color, index) => {
           return (
@@ -60,19 +62,32 @@ export default class TestOptions extends Component {
     );
   };
 
+  updateSearch = search => {
+    this.setState({ search });
+  };
+
   render() {
     const { navigation } = this.props;
+    const { search } = this.state;
 
     return (
       <View>
         <ScrollView style={styles.welcome} showsVerticalScrollIndicator={false}>
-        <View style={styles.container}>
-              <Image
-                source={require('_assets/images/infoo.png')}
-              />
-            </View>
-          <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
+          <View style={styles.container}>
+            <Image
+              source={require('_assets/images/infoo.png')}
+            />
+          </View>
           
+          <SearchBar
+            lightTheme
+            inputStyle={styles.search}
+            placeholder="Type Here..."
+            onChangeText={this.updateSearch}
+            value={search}
+          />
+          <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
+
             <Card shadow style={{ paddingVertical: theme.sizes.base, paddingHorizontal: 3 }}>
               <TextInput
                 style={styles.input}
@@ -130,11 +145,11 @@ export default class TestOptions extends Component {
                 placeholder="Occupation"
               ></TextInput>
             </Card>
-          <TouchableOpacity
-          activeOpacity={0.8}
-          onPress={() => navigation.navigate("Status")}>
-          <RenderAwards /> 
-          </TouchableOpacity>
+            <TouchableOpacity
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate("Status")}>
+              <RenderAwards />
+            </TouchableOpacity>
           </Card>
 
         </ScrollView>
@@ -175,7 +190,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   startTrip: {
-    marginTop:50,
+    marginTop: 50,
     position: "absolute",
     left: (width - 190) / 2,
     bottom: -40
