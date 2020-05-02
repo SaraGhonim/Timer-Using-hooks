@@ -64,7 +64,7 @@ class HomeScreen extends Component {
             value={search}
           />
           <View style={{ marginBottom: theme.sizes.h1 }}></View>
-          {/* <RenderMonthly /> */}
+          {/* <RenderMonthly /> */} hiiiii.. sam3a ah xD
           {/* <RenderAwards />  */}
           <RenderTrips />
           <View style={{ justifyContent: "space-between", flexDirection: 'row'  }}>
